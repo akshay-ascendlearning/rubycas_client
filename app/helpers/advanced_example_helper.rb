@@ -1,0 +1,2 @@
+module AdvancedExampleHelper
+end
