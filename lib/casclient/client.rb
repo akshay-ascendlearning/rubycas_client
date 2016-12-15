@@ -49,6 +49,7 @@ module CASClient
         else
           conf[:ticket_store]
       end
+
       @ticket_store = @ticket_store_class.new conf[:ticket_store_config]
       raise CASException, "The Ticket Store is not a subclass of AbstractTicketStore, it is a #{@ticket_store_class}" unless @ticket_store.kind_of? CASClient::Tickets::Storage::AbstractTicketStore
 
@@ -112,7 +113,7 @@ module CASClient
       @proxy_url || (cas_base_url + "/proxy")
     end
 
-    def validate_service_ticket(st)
+    def validate_service_ticket(st, consume=true)
       uri = URI.parse(validate_url)
       h = uri.query ? query_to_hash(uri.query) : {}
       h['service'] = st.service

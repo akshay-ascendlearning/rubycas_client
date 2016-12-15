@@ -27,8 +27,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "rubycas-client", "2.2.1"
 
+# gem "activerecord-session_store", "~> 0.0.1", :require=>false
+
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
+gem 'database_cleaner', "~> 1.0.1"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'pry-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -1,10 +1,6 @@
 class SessionAndPgtiou < ActiveRecord::Migration
   def self.up
-  	create_table 'sessions' do |t|
-	    t.string 'service_ticket', limit: 255
-	    t.datetime 'created_at'
-	    t.datetime 'updated_at'
-	end
+  	add_column :sessions, :service_ticket, :string
     add_index 'sessions', ['service_ticket']
     
     create_table 'cas_pgtious' do |t|

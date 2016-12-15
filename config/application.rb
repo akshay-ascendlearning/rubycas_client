@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module AscendRubycasClient
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -22,5 +24,13 @@ module AscendRubycasClient
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    config.allow_forgery_protection = false
+    
+    ActiveRecord::SessionStore::Session.table_name = 'sessions'
+    ActiveRecord::SessionStore::Session.primary_key = 'session_id'
+    ActiveRecord::SessionStore::Session.data_column_name = 'data'
+    ActiveRecord::SessionStore::Session.serializer = :json
   end
 end
