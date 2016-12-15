@@ -33,7 +33,6 @@ module CASClient
       class ActiveRecordTicketStore < AbstractTicketStore
 
         def initialize(config={})
-          byebug
           config ||= {}
           if config[:pgtious_table_name]
             CasPgtiou.set_table_name = config[:pgtious_table_name]
